@@ -49,7 +49,7 @@ If you want to test locally on your machine, do the following steps also:
 You must fill some informations on `_config.yml` to customize your site.
 
 ```
-name: John Doe
+name: YM Blog
 bio: 'A Man who travels the world eating noodles'
 picture: 'assets/images/profile.jpg'
 ...
