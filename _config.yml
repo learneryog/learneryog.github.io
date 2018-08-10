@@ -16,7 +16,7 @@ resume: true
 resume-external: true
 resume-url: https://google.com/?q=my+resume
 
-url: https://yangming0302.github.io
+url: https://learneryog.github.io
 # your url: http://USERNAME.github.io
 
 permalink: /:title/
@@ -42,7 +42,7 @@ twitter: mytwitter
 # linkedin: mylinkedin
 # youtube: myyoutube
 # spotify: myspotify
-github: yangming0302
+github: learneryog
 # gitlab: mygitlab
 # lastfm: mylastfm
 # stackoverflow: 7044681/mystackoverflow
