@@ -6,6 +6,10 @@ description: "这是我的博客"  # 一句话描述你的博客
 baseurl: ""
 url: "http://cnfeat"  # 此处填写你的博客地址 
 
+sidebar:true
+sidebar-about-description: "说点装逼的话。。。"
+sidebar-avatar:/img/avatar-by.JPG
+
 # About/contact
 owner: 
   name: "LearnerYang" # 填写作者信息：名字
