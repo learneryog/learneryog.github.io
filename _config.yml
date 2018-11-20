@@ -35,13 +35,13 @@ disqus:
 
 # if you don't have any of social below, comment the line
 facebook: myfacebook
-twitter: mytwitter
+#twitter: mytwitter
 google: mygoogle
 # instagram: myinstagram
 # pinterest: mypinterest
-linkedin: mylinkedin
-youtube: myyoutube
-spotify: myspotify
+#linkedin: mylinkedin
+#youtube: myyoutube
+#spotify: myspotify
 github: learneryog
 # gitlab: mygitlab
 # lastfm: mylastfm
@@ -55,22 +55,22 @@ csdn: https://blog.csdn.net/weixin_41657730
 email: 794961994@qq.com
 
 authors:
-    johndoe:
+    YM Blog:
         name: LearnerYang
-        bio: A Man who travels the world eating noodles
+        bio: Live the life you love,love the life you live.
         external-image: false
         picture: assets/images/profile.jpg
         #twitter: johndoe
     jamesfoster:
         name: James Foster
-        bio: A Man who develops software with coffee
+        bio: Live the life you love,love the life you live.
         external-image: false
         picture: assets/images/james.jpg
         twitter: jamesfoster
 
 # do you want a larger site? change the option below
 # options: [normal, large] | default: normal
-# normal = 560px / large = 810px
+normal = 560px / large = 810px
 width: normal
 
 # if you don't need pagination, comment the *paginate* configs below
@@ -78,7 +78,7 @@ width: normal
 # paginate_path: "blog/:num/"
 
 # if you don't need projects, comment the *projects* configs below
-#projects: true
+projects: true
 
 # if you don't need "about" or "blog", comment them out below
 about: true
@@ -97,7 +97,7 @@ related: true
 post-advance-links: [blog]
 
 # show author block at the end of a post ?
-#show-author: true
+show-author: true
 
 # do you want some animations?
 animation: true
