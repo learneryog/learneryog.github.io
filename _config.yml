@@ -36,12 +36,12 @@ disqus:
 # if you don't have any of social below, comment the line
 facebook: myfacebook
 twitter: mytwitter
-# google: mygoogle
+google: mygoogle
 # instagram: myinstagram
 # pinterest: mypinterest
-# linkedin: mylinkedin
-# youtube: myyoutube
-# spotify: myspotify
+linkedin: mylinkedin
+youtube: myyoutube
+spotify: myspotify
 github: learneryog
 # gitlab: mygitlab
 # lastfm: mylastfm
@@ -78,7 +78,7 @@ width: normal
 # paginate_path: "blog/:num/"
 
 # if you don't need projects, comment the *projects* configs below
-projects: true
+#projects: true
 
 # if you don't need "about" or "blog", comment them out below
 about: true
@@ -97,7 +97,7 @@ related: true
 post-advance-links: [blog]
 
 # show author block at the end of a post ?
-show-author: true
+#show-author: true
 
 # do you want some animations?
 animation: true
