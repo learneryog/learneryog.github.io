@@ -111,3 +111,5 @@ plugins:
 
 jekyll-mentions:
     base_url: https://github.com
+
+theme: jekyll-theme-cayman
