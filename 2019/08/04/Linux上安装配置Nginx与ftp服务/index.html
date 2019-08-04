@@ -4,11 +4,11 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="Linux系统上安装JDK、Tomcat以及Redis, YangMing&#39;s Blog">
-    <meta name="description" content="
-环境：VMware搭载CentOS6.5版本Linux系统，SecureCRT远程登录控制，安装JDK1.8，Tomcat9.0.10，Redis5.0.4
+    <meta name="keywords" content="Linux上安装配置Nginx与ftp服务, YangMing&#39;s Blog">
+    <meta name="description" content="Nginx安装首先在Nginx官网下载稳定版本的Nginx安装包，并将安装包上传到Linux。使用 tar -zxvf nginx-1.16.0.tar.gz 将压缩包解压。
+接下来先安装Nginx所需的依赖：
 
-一、安装JDK1.8首先检查Linux系统上是否有JDK，一般Linux系统会">
+gcc  安装nginx需">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +16,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Linux系统上安装JDK、Tomcat以及Redis | YangMing&#39;s Blog</title>
+    <title>Linux上安装配置Nginx与ftp服务 | YangMing&#39;s Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -265,13 +265,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/img/Random-img/41.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        Linux系统上安装JDK、Tomcat以及Redis
+                        Linux上安装配置Nginx与ftp服务
                     </div>
                 </div>
             </div>
@@ -390,8 +390,12 @@
                                 <span class="chip bg-color">Linux</span>
                             </a>
                         
-                            <a href="/tags/redis/" target="_blank">
-                                <span class="chip bg-color">redis</span>
+                            <a href="/tags/Nginx/" target="_blank">
+                                <span class="chip bg-color">Nginx</span>
+                            </a>
+                        
+                            <a href="/tags/ftp/" target="_blank">
+                                <span class="chip bg-color">ftp</span>
                             </a>
                         
                     </div>
@@ -402,8 +406,8 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/技术文章/" class="post-category" target="_blank">
-                                技术文章
+                            <a href="/categories/环境配置/" class="post-category" target="_blank">
+                                环境配置
                             </a>
                         
                     </div>
@@ -414,21 +418,21 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-05-19
+                    2019-08-04
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        912
+                        1.5k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        3 分
+                        7 分
                     </div>
                     
                 
@@ -439,95 +443,181 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <blockquote>
-<p>环境：VMware搭载CentOS6.5版本Linux系统，SecureCRT远程登录控制，安装JDK1.8，Tomcat9.0.10，Redis5.0.4</p>
-</blockquote>
-<h3 id="一、安装JDK1-8"><a href="#一、安装JDK1-8" class="headerlink" title="一、安装JDK1.8"></a>一、安装JDK1.8</h3><p>首先检查Linux系统上是否有JDK，一般Linux系统会有默认的openJDK，将其卸载掉。</p>
-<pre class=" language-javascript"><code class="language-javascript">rpm <span class="token operator">-</span>qa <span class="token operator">|</span> grep <span class="token operator">-</span>i java     <span class="token comment" spellcheck="true">// 查询系统上是否存在默认JDK</span>
+                <h1 id="Nginx安装"><a href="#Nginx安装" class="headerlink" title="Nginx安装"></a>Nginx安装</h1><p>首先在<a href="http://nginx.org/en/download.html" target="_blank" rel="noopener">Nginx官网</a>下载稳定版本的Nginx安装包，并将安装包上传到Linux。<br>使用 <code>tar -zxvf nginx-1.16.0.tar.gz</code> 将压缩包解压。</p>
+<p>接下来先安装Nginx所需的依赖：</p>
+<ul>
+<li>gcc<br>  安装nginx需要先将官网下载的源码进行编译，编译依赖gcc环境，如果没有gcc环境，需要安装gcc：<code>yum install gcc-c++</code> </li>
+<li>PCRE<br>  PCRE(Perl Compatible Regular Expressions)是一个Perl库，包括 perl 兼容的正则表达式库。nginx的http模块使用pcre来解析正则表达式，所以需要在linux上安装pcre库。<code>yum install -y pcre pcre-devel</code><br>注：pcre-devel是使用pcre开发的一个二次开发库。nginx也需要此库。</li>
+<li>zlib<br>  zlib库提供了很多种压缩和解压缩的方式，nginx使用zlib对http包的内容进行gzip，所以需要在linux上安装zlib库。<br>  <code>yum install -y zlib zlib-devel</code></li>
+<li>openssl<br>  OpenSSL 是一个强大的安全套接字层密码库，囊括主要的密码算法、常用的密钥和证书封装管理功能及SSL协议，并提供丰富的应用程序供测试或其它目的使用。<br>  nginx不仅支持http协议，还支持https（即在ssl协议上传输http），所以需要在linux安装openssl库。<br>  <code>yum install -y openssl openssl-devel</code></li>
+</ul>
+<p>然后进入刚刚解压的文件夹，执行以下命令：</p>
+<pre><code>[root@localhost nginx-1.16.0]# ./configure \
+&gt; --prefix=/usr/local/nginx \
+&gt; --pid-path=/var/run/nginx/nginx.pid \
+&gt; --lock-path=/var/lock/nginx.lock \
+&gt; --error-log-path=/var/log/nginx/error.log \
+&gt; --http-log-path=/var/log/nginx/access.log \
+&gt; --with-http_gzip_static_module \
+&gt; --http-client-body-temp-path=/var/temp/nginx/client \
+&gt; --http-proxy-temp-path=/var/temp/nginx/proxy \
+&gt; --http-fastcgi-temp-path=/var/temp/nginx/fastcgi \
+&gt; --http-uwsgi-temp-path=/var/temp/nginx/uwsgi \
+&gt; --http-scgi-temp-path=/var/temp/nginx/scgi</code></pre><p>可以看到文件夹下多出一个Makefile，然后依次执行make指令和make install指令：</p>
+<pre><code>[root@localhost ~]# make
+[root@localhost ~]# make install</code></pre><p>在启动Nginx之前，先创建临时文件夹：</p>
+<pre><code>[root@localhost ~]# mkdir /var/temp
+[root@localhost ~]# mkdir /var/temp/nginx</code></pre><h2 id="启动Nginx"><a href="#启动Nginx" class="headerlink" title="启动Nginx"></a>启动Nginx</h2><p>进入Nginx的安装目录：/usr/local/nginx，可以看到有conf、sbin、html三个文件夹，其中sbin中存放着的就是Nginx的可执行文件：</p>
+<pre><code>[root@localhost ~]# cd /usr/local/nginx
+[root@localhost ~]# cd sbin
+[root@localhost ~]# ./nginx</code></pre><h2 id="停止Nginx"><a href="#停止Nginx" class="headerlink" title="停止Nginx"></a>停止Nginx</h2><ol>
+<li><p>快速停止：查找到Nginx的进程id然后使用kill命令强制杀死进程。</p>
+<pre><code>[root@localhost ~]# cd /usr/local/nginx/sbin
+[root@localhost ~]# ./nginx -s stop</code></pre></li>
+<li><p>完整停止：等待Nginx进程处理完任务再进行停止。</p>
+<pre><code>[root@localhost ~]# cd /usr/local/nginx/sbin
+[root@localhost ~]# ./nginx -s quit</code></pre></li>
+</ol>
+<h2 id="重启Nginx"><a href="#重启Nginx" class="headerlink" title="重启Nginx"></a>重启Nginx</h2><ol>
+<li><p>先停止再启动</p>
+<pre><code>[root@localhost ~]# cd /usr/local/nginx/sbin
+[root@localhost ~]# ./nginx -s quit
+[root@localhost ~]# ./nginx</code></pre></li>
+<li><p>重新加载配置文件</p>
+<pre><code>[root@localhost ~]# cd /usr/local/nginx/sbin
+[root@localhost ~]# ./nginx -s reload</code></pre></li>
+</ol>
+<h2 id="测试Nginx"><a href="#测试Nginx" class="headerlink" title="测试Nginx"></a>测试Nginx</h2><p>Nginx的默认端口是80，需要在iptables中将80端口设为开放，打开iptables文件并加入以下信息：<br>打开iptables文件：<code>[root@localhost nginx]# vim /etc/sysconfig/iptables</code><br>在其中加入：<code>-A INPUT -p tcp -m tcp --dport 80 -j ACCEPT</code><br>如下：<br><img src="/img/post-img/19-8-4-1.png" alt="iptables"><br>保存退出。<br>重启iptables:<br><code>[root@localhost ~]# service iptables restart</code></p>
+<p>然后在主机浏览器通过ip+端口访问Nginx，比如：192.168.94.192:80，看到如下信息，说明Nginx配置成功：<br><img src="/img/post-img/19-8-4-2.png" alt="Nginx欢迎界面"></p>
+<h2 id="设置Nginx开机自启动"><a href="#设置Nginx开机自启动" class="headerlink" title="设置Nginx开机自启动"></a>设置Nginx开机自启动</h2><p>这里使用编写shell脚本的方式设置：<br><code>[root@localhost ~]# vim /etc/init.d/nginx</code><br>输入如下脚本：</p>
+<pre class=" language-shell"><code class="language-shell">#!/bin/bash
+# nginx Startup script for the Nginx HTTP Server
+# it is v.0.0.2 version.
+# chkconfig: - 85 15
+# description: Nginx is a high-performance web and proxy server.
+#              It has a lot of features, but it's not for everyone.
+# processname: nginx
+# pidfile: /var/run/nginx.pid
+# config: /usr/local/nginx/conf/nginx.conf
+nginxd=/usr/local/nginx/sbin/nginx
+nginx_config=/usr/local/nginx/conf/nginx.conf
+nginx_pid=/var/run/nginx.pid
+RETVAL=0
+prog="nginx"
+# Source function library.
+. /etc/rc.d/init.d/functions
+# Source networking configuration.
+. /etc/sysconfig/network
+# Check that networking is up.
+[ ${NETWORKING} = "no" ] && exit 0
+[ -x $nginxd ] || exit 0
+# Start nginx daemons functions.
+start() {
+if [ -e $nginx_pid ];then
+   echo "nginx already running...."
+   exit 1
+fi
+   echo -n $"Starting $prog: "
+   daemon $nginxd -c ${nginx_config}
+   RETVAL=$?
+   echo
+   [ $RETVAL = 0 ] && touch /var/lock/subsys/nginx
+   return $RETVAL
+}
+# Stop nginx daemons functions.
+stop() {
+        echo -n $"Stopping $prog: "
+        killproc $nginxd
+        RETVAL=$?
+        echo
+        [ $RETVAL = 0 ] && rm -f /var/lock/subsys/nginx /var/run/nginx.pid
+}
+# reload nginx service functions.
+reload() {
+    echo -n $"Reloading $prog: "
+    #kill -HUP `cat ${nginx_pid}`
+    killproc $nginxd -HUP
+    RETVAL=$?
+    echo
+}
+# See how we were called.
+case "$1" in
+start)
+        start
+        ;;
+stop)
+        stop
+        ;;
+reload)
+        reload
+        ;;
+restart)
+        stop
+        start
+        ;;
+status)
+        status $prog
+        RETVAL=$?
+        ;;
+*)
+        echo $"Usage: $prog {start|stop|restart|reload|status|help}"
+        exit 1
+esac
+exit $RETVAL</code></pre>
+<p>保存并退出。</p>
+<p>设置文件的访问权限：<br><code>chmod a+x /etc/init.d/nginx</code> (a+x ==&gt; all user can execute  所有用户可执行)</p>
+<p>加入到rc.local中：<br><code>[root@localhost ~]# vim /etc/rc.local</code><br>加入一行：<code>/etc/init.d/nginx start</code>，下次重启会生效。</p>
+<h1 id="ftp配置"><a href="#ftp配置" class="headerlink" title="ftp配置"></a>ftp配置</h1><h2 id="安装vsftpd组件"><a href="#安装vsftpd组件" class="headerlink" title="安装vsftpd组件"></a>安装vsftpd组件</h2><p><code>[root@localhost ~]# yum -y install vsftpd</code><br>安装完后，有/etc/vsftpd/vsftpd.conf 文件，是vsftp的配置文件。</p>
+<h2 id="添加一个ftp用户"><a href="#添加一个ftp用户" class="headerlink" title="添加一个ftp用户"></a>添加一个ftp用户</h2><p>此用户就是用来登录ftp服务器用的。<br><code>[root@localhost ~]#  useradd ftpuser</code><br>添加密码：<br><code>[root@localhost ~]# passwd ftpuser</code></p>
+<h2 id="开启21端口"><a href="#开启21端口" class="headerlink" title="开启21端口"></a>开启21端口</h2><p>因为ftp默认的端口为21，而centos默认是没有开启的，所以要修改iptables文件<br><code>[root@localhost ~]# vim /etc/sysconfig/iptables</code><br>在22 -j ACCEPT 下面另起一行输入跟那行差不多的，只是把22换成21，然后：wq保存。<br>重启iptables:<br><code>[root@localhost ~]# service iptables restart</code></p>
+<h2 id="修改selinux"><a href="#修改selinux" class="headerlink" title="修改selinux"></a>修改selinux</h2><p>执行以下命令查看状态：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># getsebool -a | grep ftp  </span>
+allow_ftpd_anon_write --<span class="token operator">></span> off
+allow_ftpd_full_access --<span class="token operator">></span> off
+allow_ftpd_use_cifs --<span class="token operator">></span> off
+allow_ftpd_use_nfs --<span class="token operator">></span> off
+ftp_home_dir --<span class="token operator">></span> off
+ftpd_connect_db --<span class="token operator">></span> off
+ftpd_use_passive_mode --<span class="token operator">></span> off
+httpd_enable_ftp_server --<span class="token operator">></span> off
+tftp_anon_write --<span class="token operator">></span> off</code></pre>
+<p>执行上面命令，返回的结果中allow_ftpd_full_access和ftp_home_dir都是off，代表没有开启外网的访问<br><code>[root@localhost ~]# setsebool -P allow_ftpd_full_access on</code><br><code>[root@localhost ~]# setsebool -P ftp_home_dir on</code></p>
+<h2 id="关闭匿名访问"><a href="#关闭匿名访问" class="headerlink" title="关闭匿名访问"></a>关闭匿名访问</h2><p><code>[root@localhost ~]# vim /etc/vsftpd/vsftpd.conf</code><br><img src="/img/post-img/19-8-4-3.png" alt="vsftptd.conf"></p>
+<h2 id="设置开机自启"><a href="#设置开机自启" class="headerlink" title="设置开机自启"></a>设置开机自启</h2><p><code>[root@localhost ~]# chkconfig vsftpd on</code></p>
+<h2 id="测试ftp服务"><a href="#测试ftp服务" class="headerlink" title="测试ftp服务"></a>测试ftp服务</h2><p>将Nginx作为项目图片服务器，需要配置nginx.conf文件：<br><img src="/img/post-img/19-8-4-4.png" alt="nginx.conf"><br>使用java代码测试，需要依赖Apache的commons-net依赖。</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>yangming<span class="token punctuation">.</span>controller<span class="token punctuation">;</span>
 
-rpm <span class="token operator">-</span>e <span class="token operator">--</span>nodeps 查出来的程序名     <span class="token comment" spellcheck="true">// 将查询出来的默认JDK卸载掉</span></code></pre>
-<p>安装依赖：</p>
-<p><code>yum install glibc.i686</code></p>
-<p>将下载好的.tar.gz压缩包上传到Linux系统，解压到/usr/local/java目录下。</p>
-<pre class=" language-javascript"><code class="language-javascript">mkdir <span class="token operator">-</span>p <span class="token operator">/</span>usr<span class="token operator">/</span>local<span class="token operator">/</span>java      <span class="token comment" spellcheck="true">// 循环创建文件夹</span>
+<span class="token keyword">import</span> org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>commons<span class="token punctuation">.</span>net<span class="token punctuation">.</span>ftp<span class="token punctuation">.</span>FTP<span class="token punctuation">;</span>
+<span class="token keyword">import</span> org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>commons<span class="token punctuation">.</span>net<span class="token punctuation">.</span>ftp<span class="token punctuation">.</span>FTPClient<span class="token punctuation">;</span>
+<span class="token keyword">import</span> org<span class="token punctuation">.</span>junit<span class="token punctuation">.</span>Test<span class="token punctuation">;</span>
 
-tar <span class="token operator">-</span>zxvf jdk<span class="token operator">-</span>8u181<span class="token operator">-</span>linux<span class="token operator">-</span>x64<span class="token punctuation">.</span>tar<span class="token punctuation">.</span>gz <span class="token operator">-</span>C <span class="token operator">/</span>usr<span class="token operator">/</span>local<span class="token operator">/</span>java     <span class="token comment" spellcheck="true">// 将压缩包解压到指定目录下</span></code></pre>
-<p>配置环境变量:</p>
-<pre class=" language-javascript"><code class="language-javascript">vim <span class="token operator">/</span>etc<span class="token operator">/</span>profile     <span class="token comment" spellcheck="true">// 使用vim编辑器查看配置文件</span>
-<span class="token comment" spellcheck="true">// 按下i键进入修改模式</span>
-<span class="token comment" spellcheck="true">//在文件末尾加入以下内容：</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>io<span class="token punctuation">.</span>File<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>io<span class="token punctuation">.</span>FileInputStream<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>io<span class="token punctuation">.</span>IOException<span class="token punctuation">;</span>
 
-#<span class="token keyword">set</span> java enviroment
-JAVA_HOME<span class="token operator">=</span><span class="token operator">/</span>usr<span class="token operator">/</span>local<span class="token operator">/</span>java<span class="token operator">/</span>jdk1<span class="token number">.8</span><span class="token punctuation">.</span>0_181
-CLASSPATH<span class="token operator">=</span><span class="token punctuation">.</span><span class="token punctuation">:</span>$JAVA_HOME<span class="token operator">/</span>lib<span class="token punctuation">.</span>tools<span class="token punctuation">.</span>jar
-PATH<span class="token operator">=</span>$JAVA_HOME<span class="token operator">/</span>bin<span class="token punctuation">:</span>$PATH
-<span class="token keyword">export</span> JAVA_HOME CLASSPATH PATH
-
-<span class="token comment" spellcheck="true">// 按Ctrl+C退出编辑，:wq保存退出</span>
-<span class="token comment" spellcheck="true">// 执行以下命令重新加载环境变量</span>
-
-source <span class="token operator">/</span>etc<span class="token operator">/</span>profile      
-</code></pre>
-<p>至此JDK1.8安装完成。</p>
-<h3 id="二、安装Tomcat9-0-10"><a href="#二、安装Tomcat9-0-10" class="headerlink" title="二、安装Tomcat9.0.10"></a>二、安装Tomcat9.0.10</h3><p>将下载好的.tar.gz压缩包上传到Linux系统，并解压到/usr/local/tomcat目录下：</p>
-<pre class=" language-javascript"><code class="language-javascript">mkdir <span class="token operator">-</span>p <span class="token operator">/</span>usr<span class="token operator">/</span>local<span class="token operator">/</span>tomcat     <span class="token comment" spellcheck="true">// 创建文件夹</span>
-
-tar <span class="token operator">-</span>zxvf apache<span class="token operator">-</span>tomcat<span class="token number">-9.0</span><span class="token punctuation">.</span><span class="token number">10</span><span class="token punctuation">.</span>tar<span class="token punctuation">.</span>gz <span class="token operator">-</span>C <span class="token operator">/</span>usr<span class="token operator">/</span>local<span class="token operator">/</span>tomcat    <span class="token comment" spellcheck="true">// 解压到指定文件夹</span></code></pre>
-<p>进入安装目录下的bin目录，运行startup.sh文件，启动服务器。</p>
-<pre class=" language-javascript"><code class="language-javascript">cd <span class="token operator">/</span>usr<span class="token operator">/</span>local<span class="token operator">/</span>tomcat<span class="token operator">/</span>apache<span class="token operator">-</span>tomcat<span class="token number">-9.0</span><span class="token punctuation">.</span><span class="token number">10</span><span class="token punctuation">.</span>tar<span class="token punctuation">.</span>gz<span class="token operator">/</span>bin
-
-<span class="token punctuation">.</span><span class="token operator">/</span>startup<span class="token punctuation">.</span>sh       <span class="token comment" spellcheck="true">// 启动服务</span></code></pre>
-<p>看到如下信息表示服务启动成功：</p>
-<p><img src="/img/post-img/5-19.png" alt="tomcat启动成功"></p>
-<p>在主机（安装VMware的电脑）上访问ip（Linux虚拟机的ip）+端口号（8080），咦，怎么访问不到？</p>
-<p>原来是Linux防火墙默认拦截了8080端口，只要把端口打开就好了。</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token operator">/</span>sbin<span class="token operator">/</span>iptables <span class="token operator">-</span>I INPUT <span class="token operator">-</span>p tcp <span class="token operator">--</span>dprot <span class="token number">8080</span> <span class="token operator">-</span>j ACCEPT    <span class="token comment" spellcheck="true">// 打开8080端口</span>
-
-<span class="token operator">/</span>etc<span class="token operator">/</span>rc<span class="token punctuation">.</span>d<span class="token operator">/</span>init<span class="token punctuation">.</span>d<span class="token operator">/</span>iptables save     <span class="token comment" spellcheck="true">// 保存配置</span></code></pre>
-<p>然后再访问ip+8080就可以看到熟悉的tom猫页面了：</p>
-<p><img src="/img/post-img/5-19-1.png" alt="tomcat主页"></p>
-<p>关闭服务器：</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// 在bin目录下执行：</span>
-<span class="token punctuation">.</span><span class="token operator">/</span>shutdowm<span class="token punctuation">.</span>sh</code></pre>
-<p>至此Tomcat9.0.10安装完毕。</p>
-<h3 id="三、安装Redis5-0-4"><a href="#三、安装Redis5-0-4" class="headerlink" title="三、安装Redis5.0.4"></a>三、安装Redis5.0.4</h3><p>安装依赖：</p>
-<p><code>yum install gcc-c++</code></p>
-<p>到官网下载压缩包，上传到Linux系统，并解压。</p>
-<p><code>tar -zxvf redis-5.0.4.tar.gz    // 直接解压到当前目录即可</code></p>
-<p>进入刚刚解压的redis-5.0.4目录，在该目录下执行   make   命令，进行编译。</p>
-<p>等一会过后出现如下信息表示编译成功：</p>
-<p><img src="/img/post-img/5-19-2.png" alt="redis编译成功"></p>
-<p>然后在该目录下执行以下命令进行安装：（/usr/local/redis文件夹会自动创建）</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token punctuation">[</span>root@localhost redis<span class="token number">-5.0</span><span class="token punctuation">.</span><span class="token number">4</span><span class="token punctuation">]</span># make PREFIX<span class="token operator">=</span><span class="token operator">/</span>usr<span class="token operator">/</span>local<span class="token operator">/</span>redis install
-
-<span class="token comment" spellcheck="true">// 将配置文件复制到安装目录下，用以自定义配置</span>
-<span class="token punctuation">[</span>root@localhost redis<span class="token number">-5.0</span><span class="token punctuation">.</span><span class="token number">4</span><span class="token punctuation">]</span># cp redis<span class="token punctuation">.</span>conf <span class="token operator">/</span>usr<span class="token operator">/</span>local<span class="token operator">/</span>redis</code></pre>
-<p>前端启动redis服务：</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token punctuation">[</span>root@localhost redis<span class="token number">-5.0</span><span class="token punctuation">.</span><span class="token number">4</span><span class="token punctuation">]</span># cd <span class="token operator">/</span>usr<span class="token operator">/</span>local<span class="token operator">/</span>redis
-<span class="token punctuation">[</span>root@localhost redis<span class="token punctuation">]</span># <span class="token punctuation">.</span><span class="token operator">/</span>bin<span class="token operator">/</span>redis<span class="token operator">-</span>server</code></pre>
-<p>出现如下信息表示服务启动成功：</p>
-<p><img src="/img/post-img/5-19-3.png" alt="redis启动成功"></p>
-<p>其中6379是Redis默认端口号，PID是进程ID，方便停止进程。</p>
-<p>在另一个窗口（session）中使用如下命令连接Redis服务：</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// 默认连接本机的6379端口</span>
-<span class="token punctuation">[</span>root@localhost bin<span class="token punctuation">]</span># <span class="token punctuation">.</span><span class="token operator">/</span>redis<span class="token operator">-</span>cli      
-
-<span class="token comment" spellcheck="true">// 根据ip和端口号连接指定redis服务</span>
-<span class="token punctuation">[</span>root@localhost bin<span class="token punctuation">]</span># <span class="token punctuation">.</span><span class="token operator">/</span>redis<span class="token operator">-</span>cli <span class="token operator">-</span>h <span class="token number">127.0</span><span class="token punctuation">.</span><span class="token number">0.1</span> <span class="token operator">-</span>p <span class="token number">6379</span>   </code></pre>
-<p>后端启动redis服务：</p>
-<p>进入redis.conf文件修改daemonize属性为yes</p>
-<p>然后启动服务的同时加载配置文件。</p>
-<p><code>[root@localhost redis]# ./bin/redis-server ./redis.conf</code></p>
-<p>页面显示没有前端启动那么花里胡哨，但确实启动了，所谓后端启动。</p>
-<p>关闭redis：</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// 1、查询到pid   使用   kill -9 pid  杀死进程</span>
-<span class="token punctuation">[</span>root@localhost redis<span class="token punctuation">]</span># ps <span class="token operator">-</span>ef <span class="token operator">|</span> grep redis
-<span class="token punctuation">[</span>root@localhost redis<span class="token punctuation">]</span># kill <span class="token operator">-</span><span class="token number">9</span> pid
-
-<span class="token comment" spellcheck="true">// 2、正常结束</span>
-<span class="token punctuation">[</span>root@localhost redis<span class="token punctuation">]</span># <span class="token punctuation">.</span><span class="token operator">/</span>bin<span class="token operator">/</span>redis<span class="token operator">-</span>cli shutdown</code></pre>
-<p>至此，Redis5.0.4安装完毕。</p>
-<p>开启你的Redis之旅吧。</p>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">FtpTest</span> <span class="token punctuation">{</span>
+    <span class="token annotation punctuation">@Test</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">testFTPClient</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> IOException <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">//创建一个FTP客户端</span>
+        FTPClient ftpClient <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FTPClient</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//创建连接</span>
+        ftpClient<span class="token punctuation">.</span><span class="token function">connect</span><span class="token punctuation">(</span><span class="token string">"192.168.94.129"</span><span class="token punctuation">,</span><span class="token number">21</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//登录</span>
+        ftpClient<span class="token punctuation">.</span><span class="token function">login</span><span class="token punctuation">(</span><span class="token string">"ftpuser"</span><span class="token punctuation">,</span><span class="token string">"ftpuser"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//创建一个文件输入流，读取一张图片文件</span>
+        FileInputStream inputStream <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FileInputStream</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">File</span><span class="token punctuation">(</span>
+                <span class="token string">"C:\\Users\\Administor\\Pictures\\Saved Pictures\\timg.jpg"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//指定文件上传的路径</span>
+        ftpClient<span class="token punctuation">.</span><span class="token function">changeWorkingDirectory</span><span class="token punctuation">(</span><span class="token string">"/home/ftpuser/www/images"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//指定上传文件的格式，默认文本格式，需要改成二进制格式</span>
+        ftpClient<span class="token punctuation">.</span><span class="token function">setFileType</span><span class="token punctuation">(</span>FTP<span class="token punctuation">.</span>BINARY_FILE_TYPE<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//上传文件</span>
+        ftpClient<span class="token punctuation">.</span><span class="token function">storeFile</span><span class="token punctuation">(</span><span class="token string">"test.jpg"</span><span class="token punctuation">,</span>inputStream<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//退出登录</span>
+        ftpClient<span class="token punctuation">.</span><span class="token function">logout</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p>此时访问192.168.94.129/images/test.jpg就可以看到上传的图片了。</p>
 
             </div>
             <hr/>
@@ -686,11 +776,11 @@ tar <span class="token operator">-</span>zxvf apache<span class="token operator"
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《Linux系统上安装JDK、Tomcat以及Redis》
+                    《Linux上安装配置Nginx与ftp服务》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/05/19/Linux系统上安装JDK、Tomcat以及Redis/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/08/04/Linux上安装配置Nginx与ftp服务/" property="cc:attributionName"
                rel="cc:attributionURL">
-                YangMing
+                杨明
             </a> 采用
             <a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.zh">
                 知识共享署名 4.0 国际许可协议
@@ -728,44 +818,45 @@ tar <span class="token operator">-</span>zxvf apache<span class="token operator"
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6 overflow-policy" data-aos="fade-up">
+        <div class="article col s12 m6 overflow-policy" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2019/05/19/Linux系统上安装MySQL与远程访问配置/">
+                <a href="/2019/08/04/Linux上安装配置Nginx与ftp服务/">
                     <div class="card-image">
                         
+                        <img src="/img/Random-img/41.jpg" class="responsive-img" alt="Linux上安装配置Nginx与ftp服务">
                         
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="Linux系统上安装MySQL与远程访问配置">
-                        
-                        <span class="card-title">Linux系统上安装MySQL与远程访问配置</span>
+                        <span class="card-title">Linux上安装配置Nginx与ftp服务</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
-今天花了一天的时间给Linux系统装MySQL，中途遇到了不少问题，导致重新开始了好几次，特此总结，以便复查。
+                            Nginx安装首先在Nginx官网下载稳定版本的Nginx安装包，并将安装包上传到Linux。使用 tar -zxvf nginx-1.16.0.tar.gz 将压缩包解压。
+接下来先安装Nginx所需的依赖：
 
-首先说明一下环境，用的是VMware虚拟机搭载CentOS6.5的Linux系统，并用CRT远程访问控制，所用MySQL版本
+gcc  安装nginx需
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-19
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-04
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/技术文章/" class="post-category" target="_blank">
-                                    技术文章
+                            <a href="/categories/环境配置/" class="post-category" target="_blank">
+                                    环境配置
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -777,8 +868,12 @@ tar <span class="token operator">-</span>zxvf apache<span class="token operator"
                         <span class="chip bg-color">Linux</span>
                     </a>
                     
-                    <a href="/tags/mysql/" target="_blank">
-                        <span class="chip bg-color">mysql</span>
+                    <a href="/tags/Nginx/" target="_blank">
+                        <span class="chip bg-color">Nginx</span>
+                    </a>
+                    
+                    <a href="/tags/ftp/" target="_blank">
+                        <span class="chip bg-color">ftp</span>
                     </a>
                     
                 </div>
@@ -792,40 +887,33 @@ tar <span class="token operator">-</span>zxvf apache<span class="token operator"
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/05/04/ArrayList与LinkedList对比/">
+                <a href="/2019/08/01/AQS学习笔记/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="ArrayList与LinkList对比">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="AQS学习笔记">
                         
-                        <span class="card-title">ArrayList与LinkList对比</span>
+                        <span class="card-title">AQS学习笔记</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
-本文简要总结一下java中ArrayList与LinkedList的区别，这在面试中也是常常会问到的一个知识点。
+                            AQS简介
 
-先来看一下ArrayList和LinkedList的关系是怎样的：
-
-从继承体系可以看到，ArrayList与Linked
+AbstractQueuedSynchronizer简称AQS，是一个用于构建锁和同步容器的框架。事实上concurrent包内许多类都是基于AQS构建，例如ReentrantLock，Semaphore，CountDownL
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-04
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-01
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/技术文章/" class="post-category" target="_blank">
-                                    技术文章
-                                </a>
-                            
-                            <a href="/categories/技术文章/集合/" class="post-category" target="_blank">
-                                    集合
+                            <a href="/categories/并发/" class="post-category" target="_blank">
+                                    并发
                                 </a>
                             
                             
@@ -835,20 +923,12 @@ tar <span class="token operator">-</span>zxvf apache<span class="token operator"
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/java/" target="_blank">
-                        <span class="chip bg-color">java</span>
+                    <a href="/tags/并发/" target="_blank">
+                        <span class="chip bg-color">并发</span>
                     </a>
                     
-                    <a href="/tags/集合/" target="_blank">
-                        <span class="chip bg-color">集合</span>
-                    </a>
-                    
-                    <a href="/tags/ArrayList/" target="_blank">
-                        <span class="chip bg-color">ArrayList</span>
-                    </a>
-                    
-                    <a href="/tags/LinkedList/" target="_blank">
-                        <span class="chip bg-color">LinkedList</span>
+                    <a href="/tags/AQS/" target="_blank">
+                        <span class="chip bg-color">AQS</span>
                     </a>
                     
                 </div>
