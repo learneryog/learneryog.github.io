@@ -427,18 +427,16 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getSec
         <div class="container">
             <div class="row">
                 <div class="col s10 offset-s1">
-                    <div class="title center-align">hashCode和equals方法</div>
+                    <div class="title center-align">ORM与反射</div>
                     <div class="description center-align">
                     
-                        hashCode和equals方法是Object类中的两个常用方法。其定义如下：
-// hashCode()方法默认是native方法：
-public native int hashCode();
+                        ORM（Object Relation Mapping）对象关系模型关系模型（数据库表）：   表、字段、字段类型对象模型（java实体类）：类、属性、属性类型通过ORM框架解除模型之间的阻抗。
+利用反射实现ORM中的准备预编译SQL语句
 
-// equals(obj)默认比较的是
                     
                     </div>
                     <div class="cover-btns">
-                        <a href="/2019/05/21/hashCode和equals方法/" class="waves-effect waves-light btn" target="_blank">
+                        <a href="/2019/05/25/ORM与反射/" class="waves-effect waves-light btn" target="_blank">
                             <i class="icon fa fa-eye fa-fw"></i>阅读更多
                         </a>
                     </div>
@@ -453,16 +451,18 @@ public native int hashCode();
         <div class="container">
             <div class="row">
                 <div class="col s10 offset-s1">
-                    <div class="title center-align">ORM与反射</div>
+                    <div class="title center-align">hashCode和equals方法</div>
                     <div class="description center-align">
                     
-                        ORM（Object Relation Mapping）对象关系模型关系模型（数据库表）：   表、字段、字段类型对象模型（java实体类）：类、属性、属性类型通过ORM框架解除模型之间的阻抗。
-利用反射实现ORM中的准备预编译SQL语句
+                        hashCode和equals方法是Object类中的两个常用方法。其定义如下：
+// hashCode()方法默认是native方法：
+public native int hashCode();
 
+// equals(obj)默认比较的是
                     
                     </div>
                     <div class="cover-btns">
-                        <a href="/2019/05/25/ORM与反射/" class="waves-effect waves-light btn" target="_blank">
+                        <a href="/2019/05/21/hashCode和equals方法/" class="waves-effect waves-light btn" target="_blank">
                             <i class="icon fa fa-eye fa-fw"></i>阅读更多
                         </a>
                     </div>
@@ -607,6 +607,28 @@ NIO
                     </div>
                     <div class="cover-btns">
                         <a href="/2019/05/25/java反射原理/" class="waves-effect waves-light btn" target="_blank">
+                            <i class="icon fa fa-eye fa-fw"></i>阅读更多
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div class="carousel-item amber white-text carousel-post bg-cover"
+            style="background-image: url('/medias/featureimages/28.jpg');">
+        <div class="container">
+            <div class="row">
+                <div class="col s10 offset-s1">
+                    <div class="title center-align">ConcurrentHashMap源码（一）</div>
+                    <div class="description center-align">
+                    
+                        ConcurrentHashMap作为Concurrent一族，其有着高效地并发操作，相比Hashtable的笨重，ConcurrentHashMap则更胜一筹了。在1.8版本以前，ConcurrentHashMap采用分段锁的概念，使锁更加细化，但是1.8已经改变了这种思路，而是利用CAS+Synchronized来保证并发更新的安全，当然底层采用数组+链表+红黑树的存储结构。
+                    
+                    </div>
+                    <div class="cover-btns">
+                        <a href="/2019/08/05/ConcurrentHashMap源码（一）/" class="waves-effect waves-light btn" target="_blank">
                             <i class="icon fa fa-eye fa-fw"></i>阅读更多
                         </a>
                     </div>
@@ -847,6 +869,69 @@ AbstractQueuedSynchronizer简称AQS，是一个用于构建锁和同步容器的
     <!-- 所有文章卡片 -->
     <article id="articles" class="container articles">
         <div class="row article-row">
+            
+            <div class="article col s12 m6 l4 overflow-policy" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2019/08/05/ConcurrentHashMap源码（一）/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/28.jpg" class="responsive-img" alt="ConcurrentHashMap源码（一）">
+                            
+                            <span class="card-title">ConcurrentHashMap源码（一）</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                ConcurrentHashMap作为Concurrent一族，其有着高效地并发操作，相比Hashtable的笨重，ConcurrentHashMap则更胜一筹了。在1.8版本以前，ConcurrentHashMap采用分段锁的概念，使锁更加细化，但是1.8已经改变了这种思路，而是利用CAS+Synchronized来保证并发更新的安全，当然底层采用数组+链表+红黑树的存储结构。
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-05
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/java/" class="post-category" target="_blank">
+                                    java
+                                </a>
+                                
+                                <a href="/categories/java/java源码/" class="post-category" target="_blank">
+                                    java源码
+                                </a>
+                                
+                                <a href="/categories/java/java源码/并发/" class="post-category" target="_blank">
+                                    并发
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/集合/" target="_blank">
+                            <span class="chip bg-color">集合</span>
+                        </a>
+                        
+                        <a href="/tags/java源码/" target="_blank">
+                            <span class="chip bg-color">java源码</span>
+                        </a>
+                        
+                        <a href="/tags/ConcurrentHashMap/" target="_blank">
+                            <span class="chip bg-color">ConcurrentHashMap</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
             
             <div class="article col s12 m6 l4 overflow-policy" data-aos="zoom-in">
                 <div class="card">
@@ -1459,58 +1544,6 @@ volatile的用法volatile通常被比喻
                 </div>
             </div>
             
-            <div class="article col s12 m6 l4 overflow-policy" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2019/05/28/线程基本概念/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="线程基本概念">
-                            
-                            <span class="card-title">线程基本概念</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                一、程序、进程与线程首先区分一下程序、进程与线程这三个之间的概念。
-
- 程序 (Program)：程序是一段静态的代码，它是应用程序执行的蓝本
-
-
-进程 (Process)：进程是指一种正在运行的程序，有自己的地址空间。进程是分配资源的最小
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-28
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fa fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/并发/" class="post-category" target="_blank">
-                                    并发
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/线程/" target="_blank">
-                            <span class="chip bg-color">线程</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
         </div>
     </article>
 
@@ -1553,7 +1586,7 @@ volatile的用法volatile通常被比喻
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">49.4k</span>
+                <span class="white-color">53.5k</span>
             
 
             

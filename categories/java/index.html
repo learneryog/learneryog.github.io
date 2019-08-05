@@ -307,20 +307,11 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getSec
                 </a>
                 
                 
-                <a href="/categories/技术文章/集合/" title="集合: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            style="background-color: #F5EEF8;">集合
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/categories/java/" title="java: 8">
+                <a href="/categories/java/" title="java: 9">
                     <span class="chip center-align waves-effect waves-light
                              chip-active "
-                            style="background-color: #D5F5E3;">java
-                        <span class="tag-length">8</span>
+                            style="background-color: #F5EEF8;">java
+                        <span class="tag-length">9</span>
                     </span>
                 </a>
                 
@@ -328,7 +319,16 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getSec
                 <a href="/categories/Docker/" title="Docker: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            style="background-color: #E8F8F5;">Docker
+                            style="background-color: #D5F5E3;">Docker
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/技术文章/集合/" title="集合: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #E8F8F5;">集合
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -370,11 +370,11 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getSec
                 </a>
                 
                 
-                <a href="/categories/java/java源码/" title="java源码: 1">
+                <a href="/categories/java/java源码/" title="java源码: 2">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
                             style="background-color: #A3E4D7;">java源码
-                        <span class="tag-length">1</span>
+                        <span class="tag-length">2</span>
                     </span>
                 </a>
                 
@@ -388,11 +388,11 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getSec
                 </a>
                 
                 
-                <a href="/categories/java/java源码/并发/" title="并发: 1">
+                <a href="/categories/java/java源码/并发/" title="并发: 2">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
                             style="background-color: #F8C471;">并发
-                        <span class="tag-length">1</span>
+                        <span class="tag-length">2</span>
                     </span>
                 </a>
                 
@@ -415,6 +415,68 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getSec
 
     <article id="articles" class="container articles">
         <div class="row tags-posts">
+            
+            <div class="article tag-post col s12 m6 l4 overflow-policy" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2019/08/05/ConcurrentHashMap源码（一）/">
+                        <div class="card-image tag-image">
+                            
+                            
+                            <img src="/medias/featureimages/28.jpg" class="responsive-img" alt="ConcurrentHashMap源码（一）">
+                            
+                            <span class="card-title">ConcurrentHashMap源码（一）</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                ConcurrentHashMap作为Concurrent一族，其有着高效地并发操作，相比Hashtable的笨重，ConcurrentHashMap则更胜一筹了。在1.8版本以前，ConcurrentHashMap采用分段锁的概念，使锁更加细化，但是1.8已经改变了这种思路，而是利用CAS+Synchronized来保证并发更新的安全，当然底层采用数组+链表+红黑树的存储结构。
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-05
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/java/" class="post-category" target="_blank">
+                                    java
+                                </a>
+                                
+                                <a href="/categories/java/java源码/" class="post-category" target="_blank">
+                                    java源码
+                                </a>
+                                
+                                <a href="/categories/java/java源码/并发/" class="post-category" target="_blank">
+                                    并发
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/集合/" target="_blank">
+                            <span class="chip bg-color">集合</span>
+                        </a>
+                        
+                        <a href="/tags/java源码/" target="_blank">
+                            <span class="chip bg-color">java源码</span>
+                        </a>
+                        
+                        <a href="/tags/ConcurrentHashMap/" target="_blank">
+                            <span class="chip bg-color">ConcurrentHashMap</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
             
             <div class="article tag-post col s12 m6 l4 overflow-policy" data-aos="zoom-in">
                 <div class="card">
@@ -858,7 +920,7 @@ ArrayList存储元素可以重复，存储顺序
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">49.4k</span>
+                <span class="white-color">53.5k</span>
             
 
             
