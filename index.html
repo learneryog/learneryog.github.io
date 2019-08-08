@@ -398,6 +398,28 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getSec
     
     
     <div class="carousel-item amber white-text carousel-post bg-cover"
+            style="background-image: url('/medias/featureimages/10.jpg');">
+        <div class="container">
+            <div class="row">
+                <div class="col s10 offset-s1">
+                    <div class="title center-align">JVM总结</div>
+                    <div class="description center-align">
+                    
+                        JVM 是可运行 Java 代码的假想计算机 ，包括一套字节码指令集、一组寄存器、一个栈、一个垃圾回收，堆 和 一个存储方法域。JVM 是运行在操作系统之上的，它与硬件没有直接的交互。
+                    
+                    </div>
+                    <div class="cover-btns">
+                        <a href="/2019/08/08/JVM总结/" class="waves-effect waves-light btn" target="_blank">
+                            <i class="icon fa fa-eye fa-fw"></i>阅读更多
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div class="carousel-item amber white-text carousel-post bg-cover"
             style="background-image: url('/medias/featureimages/6.jpg');">
         <div class="container">
             <div class="row">
@@ -473,6 +495,33 @@ public native int hashCode();
     
     
     <div class="carousel-item amber white-text carousel-post bg-cover"
+            style="background-image: url('/medias/featureimages/8.jpg');">
+        <div class="container">
+            <div class="row">
+                <div class="col s10 offset-s1">
+                    <div class="title center-align">浅谈ArrayList</div>
+                    <div class="description center-align">
+                    
+                        一、ArrayList的继承体系和特点ArrayList总体继承体系图如下：
+ArrayList的特点主要有以下几点：
+
+
+ArrayList在内存中分配连续的存储空间，可理解为长度可变的数组。
+ArrayList存储元素可以重复，存储顺序
+                    
+                    </div>
+                    <div class="cover-btns">
+                        <a href="/2019/05/22/浅谈ArrayList/" class="waves-effect waves-light btn" target="_blank">
+                            <i class="icon fa fa-eye fa-fw"></i>阅读更多
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div class="carousel-item amber white-text carousel-post bg-cover"
             style="background-image: url('/medias/featureimages/0.jpg');">
         <div class="container">
             <div class="row">
@@ -521,23 +570,18 @@ public native int hashCode();
     
     
     <div class="carousel-item amber white-text carousel-post bg-cover"
-            style="background-image: url('/medias/featureimages/8.jpg');">
+            style="background-image: url('/medias/featureimages/28.jpg');">
         <div class="container">
             <div class="row">
                 <div class="col s10 offset-s1">
-                    <div class="title center-align">浅谈ArrayList</div>
+                    <div class="title center-align">ConcurrentHashMap源码（二）</div>
                     <div class="description center-align">
                     
-                        一、ArrayList的继承体系和特点ArrayList总体继承体系图如下：
-ArrayList的特点主要有以下几点：
-
-
-ArrayList在内存中分配连续的存储空间，可理解为长度可变的数组。
-ArrayList存储元素可以重复，存储顺序
+                        ConcurrentHashMap作为Concurrent一族，其有着高效地并发操作，相比Hashtable的笨重，ConcurrentHashMap则更胜一筹了。在1.8版本以前，ConcurrentHashMap采用分段锁的概念，使锁更加细化，但是1.8已经改变了这种思路，而是利用CAS+Synchronized来保证并发更新的安全，当然底层采用数组+链表+红黑树的存储结构。
                     
                     </div>
                     <div class="cover-btns">
-                        <a href="/2019/05/22/浅谈ArrayList/" class="waves-effect waves-light btn" target="_blank">
+                        <a href="/2019/08/05/ConcurrentHashMap源码（二）/" class="waves-effect waves-light btn" target="_blank">
                             <i class="icon fa fa-eye fa-fw"></i>阅读更多
                         </a>
                     </div>
@@ -746,7 +790,7 @@ $(function () {
 
     
     
-    <div class="col s12 m6" >
+    <div class="col s12" >
         <div class="post-card" style="background-image: url('/medias/featureimages/17.jpg')">
             <div class="post-body">
                 <div class="post-categories">
@@ -760,13 +804,9 @@ $(function () {
                     <h3 class="post-title">ArrayList与LinkList对比</h3>
                 </a>
                 <p class="post-description">
-                    
-                        
 本文简要总结一下java中ArrayList与LinkedList的区别，这在面试中也是常常会问到的一个知识点。
 
-先来看一下ArrayL
-                    
-                </p>
+先来看一下ArrayList和LinkedList的</p>
                 <a href="/2019/05/04/ArrayList与LinkedList对比/" target="_blank"
                         class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #FF5E3A 0%, #FF2A68 100%)">
                     <i class="icon fa fa-eye fa-fw"></i>阅读更多
@@ -776,7 +816,30 @@ $(function () {
     </div>
     
     
-    <div class="col s12 m6" >
+    <div class="col s12 m6" data-aos="zoom-in-up">
+        <div class="post-card" style="background-image: url('/medias/featureimages/10.jpg')">
+            <div class="post-body">
+                <div class="post-categories">
+                    
+                    <a href="/categories/java/" class="category" target="_blank">java</a>
+                    
+                    <a href="/categories/java/JVM/" class="category" target="_blank">JVM</a>
+                    
+                </div>
+                <a href="/2019/08/08/JVM总结/" target="_blank">
+                    <h3 class="post-title">JVM总结</h3>
+                </a>
+                <p class="post-description">JVM 是可运行 Java 代码的假想计算机 ，包括一套字节码指令集、一组寄存器、一个栈、一个垃圾回收，堆 和 一个存储方法域。JVM 是运行在操作系统之上的，它与硬件没有直接的交互。</p>
+                <a href="/2019/08/08/JVM总结/" target="_blank"
+                        class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #EF4DB6 0%, #C643FC 100%)">
+                    <i class="icon fa fa-eye fa-fw"></i>阅读更多
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div class="col s12 m6" data-aos="zoom-in-up">
         <div class="post-card" style="background-image: url('/medias/featureimages/29.jpg')">
             <div class="post-body">
                 <div class="post-categories">
@@ -788,13 +851,9 @@ $(function () {
                     <h3 class="post-title">谈谈volatile</h3>
                 </a>
                 <p class="post-description">
-                    
-                        
-Java语言为了解决并发编程中存在的原子性、可见性和有序性问题，提供了一系列和并发处理相关的关键字，比如synchronized、vola
-                    
-                </p>
+Java语言为了解决并发编程中存在的原子性、可见性和有序性问题，提供了一系列和并发处理相关的关键字，比如synchronized、vola</p>
                 <a href="/2019/07/31/谈谈volatile/" target="_blank"
-                        class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #EF4DB6 0%, #C643FC 100%)">
+                        class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #1AD6FD 0%, #1D62F0 100%)">
                     <i class="icon fa fa-eye fa-fw"></i>阅读更多
                 </a>
             </div>
@@ -802,7 +861,7 @@ Java语言为了解决并发编程中存在的原子性、可见性和有序性�
     </div>
     
     
-    <div class="col s12 m6" data-aos="zoom-in-up">
+    <div class="col s12" data-aos="zoom-in-up">
         <div class="post-card" style="background-image: url('/medias/featureimages/20.jpg')">
             <div class="post-body">
                 <div class="post-categories">
@@ -813,13 +872,9 @@ Java语言为了解决并发编程中存在的原子性、可见性和有序性�
                 <a href="/2019/05/22/基于JDK8的HashMap详解/" target="_blank">
                     <h3 class="post-title">基于JDK8的HashMap详解</h3>
                 </a>
-                <p class="post-description">
-                    
-                        摘要HashMap是程序员使用频率较高的一种用于映射（键值对）处理的数据类型，随着JDK（Java Development Kit）版本的更
-                    
-                </p>
+                <p class="post-description">摘要HashMap是程序员使用频率较高的一种用于映射（键值对）处理的数据类型，随着JDK（Java Development Kit）版本的更新，HashMap也在不断被优</p>
                 <a href="/2019/05/22/基于JDK8的HashMap详解/" target="_blank"
-                        class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #1AD6FD 0%, #1D62F0 100%)">
+                        class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #FFCC00 0%, #FF9500 100%)">
                     <i class="icon fa fa-eye fa-fw"></i>阅读更多
                 </a>
             </div>
@@ -838,15 +893,11 @@ Java语言为了解决并发编程中存在的原子性、可见性和有序性�
                 <a href="/2019/08/01/AQS学习笔记/" target="_blank">
                     <h3 class="post-title">AQS学习笔记</h3>
                 </a>
-                <p class="post-description">
-                    
-                        AQS简介
+                <p class="post-description">AQS简介
 
-AbstractQueuedSynchronizer简称AQS，是一个用于构建锁和同步容器的框架。事实上concurrent包
-                    
-                </p>
+AbstractQueuedSynchronizer简称AQS，是一个用于构建锁和同步容器的框架。事实上concurrent包</p>
                 <a href="/2019/08/01/AQS学习笔记/" target="_blank"
-                        class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #FFCC00 0%, #FF9500 100%)">
+                        class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #4cbf30 0%, #0f9d58 100%)">
                     <i class="icon fa fa-eye fa-fw"></i>阅读更多
                 </a>
             </div>
@@ -869,6 +920,124 @@ AbstractQueuedSynchronizer简称AQS，是一个用于构建锁和同步容器的
     <!-- 所有文章卡片 -->
     <article id="articles" class="container articles">
         <div class="row article-row">
+            
+            <div class="article col s12 m6 l4 overflow-policy" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2019/08/08/JVM总结/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="JVM总结">
+                            
+                            <span class="card-title">JVM总结</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                JVM 是可运行 Java 代码的假想计算机 ，包括一套字节码指令集、一组寄存器、一个栈、一个垃圾回收，堆 和 一个存储方法域。JVM 是运行在操作系统之上的，它与硬件没有直接的交互。
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-08
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/java/" class="post-category" target="_blank">
+                                    java
+                                </a>
+                                
+                                <a href="/categories/java/JVM/" class="post-category" target="_blank">
+                                    JVM
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/java/" target="_blank">
+                            <span class="chip bg-color">java</span>
+                        </a>
+                        
+                        <a href="/tags/JVM/" target="_blank">
+                            <span class="chip bg-color">JVM</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4 overflow-policy" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2019/08/05/ConcurrentHashMap源码（二）/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/28.jpg" class="responsive-img" alt="ConcurrentHashMap源码（二）">
+                            
+                            <span class="card-title">ConcurrentHashMap源码（二）</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                ConcurrentHashMap作为Concurrent一族，其有着高效地并发操作，相比Hashtable的笨重，ConcurrentHashMap则更胜一筹了。在1.8版本以前，ConcurrentHashMap采用分段锁的概念，使锁更加细化，但是1.8已经改变了这种思路，而是利用CAS+Synchronized来保证并发更新的安全，当然底层采用数组+链表+红黑树的存储结构。
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-05
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/java/" class="post-category" target="_blank">
+                                    java
+                                </a>
+                                
+                                <a href="/categories/java/java源码/" class="post-category" target="_blank">
+                                    java源码
+                                </a>
+                                
+                                <a href="/categories/java/java源码/并发/" class="post-category" target="_blank">
+                                    并发
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/集合/" target="_blank">
+                            <span class="chip bg-color">集合</span>
+                        </a>
+                        
+                        <a href="/tags/java源码/" target="_blank">
+                            <span class="chip bg-color">java源码</span>
+                        </a>
+                        
+                        <a href="/tags/ConcurrentHashMap/" target="_blank">
+                            <span class="chip bg-color">ConcurrentHashMap</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
             
             <div class="article col s12 m6 l4 overflow-policy" data-aos="zoom-in">
                 <div class="card">
@@ -1429,121 +1598,6 @@ volatile的用法volatile通常被比喻
                 </div>
             </div>
             
-            <div class="article col s12 m6 l4 overflow-policy" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2019/05/31/Docker基础（一）/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="Docker基础（一）">
-                            
-                            <span class="card-title">Docker基础（一）</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-今天开始正式学习Docker，边学习边总结，任重而道远。
-
-
-启动docker服务：systemctl start docker
-启动守护进程：systemctl daemon-reload
-重启docker服务：systemctl re
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-31
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fa fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/Dcoker/" class="post-category" target="_blank">
-                                    Dcoker
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/Docker/" target="_blank">
-                            <span class="chip bg-color">Docker</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4 overflow-policy" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2019/05/30/Ubuntu环境下安装配置Docker/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="Ubuntu环境下安装配置Docker">
-                            
-                            <span class="card-title">Ubuntu环境下安装配置Docker</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-安装环境：Ubuntu 18.04
-
-1. 系统要求Ubuntu系统对Docker的支持十分成熟，只要是64位的即可。Docker目前支持的最低的Ubuntu版本为14.04 LTS，但实际上从稳定性上考虑，推荐使用16.04 LTS或1
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-30
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fa fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/环境配置/" class="post-category" target="_blank">
-                                    环境配置
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/Linux/" target="_blank">
-                            <span class="chip bg-color">Linux</span>
-                        </a>
-                        
-                        <a href="/tags/环境搭建/" target="_blank">
-                            <span class="chip bg-color">环境搭建</span>
-                        </a>
-                        
-                        <a href="/tags/Ubuntu/" target="_blank">
-                            <span class="chip bg-color">Ubuntu</span>
-                        </a>
-                        
-                        <a href="/tags/docker/" target="_blank">
-                            <span class="chip bg-color">docker</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
         </div>
     </article>
 
@@ -1586,7 +1640,7 @@ volatile的用法volatile通常被比喻
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">53.5k</span>
+                <span class="white-color">61.8k</span>
             
 
             
