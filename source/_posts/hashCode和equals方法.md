@@ -8,7 +8,7 @@ tags:
      - java
      - 基础知识点
 ---
-
+### git Commit测试
 hashCode和equals方法是Object类中的两个常用方法。其定义如下：
 ```java
 // hashCode()方法默认是native方法：
